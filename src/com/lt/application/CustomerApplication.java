@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 import com.lt.business.CustomerBusiness;
+import com.lt.business.CustomerInterface;
 
 /**
  * @author user214
@@ -23,7 +24,7 @@ public class CustomerApplication {
 		// TODO Auto-generated method stub
 		InputStreamReader isr= new InputStreamReader(System.in);
 		BufferedReader br= new BufferedReader(isr);
-		CustomerBusiness cb=new CustomerBusiness();
+		CustomerInterface cb=new CustomerBusiness();
 		//cb.createCustomer(101, "Rubin", "Kerala");
 		//cb.createCustomer(102, "Rubin Mathew", "Kerala");	
 		cb.listCustomer();
@@ -67,7 +68,7 @@ public class CustomerApplication {
 				br.readLine();
 			break;
 			case 4:
-				// call method for listing all customer
+				// call method for listing all customers
 				cb.listCustomer();
 				br.readLine();
 			break;

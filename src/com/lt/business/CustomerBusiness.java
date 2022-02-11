@@ -5,6 +5,8 @@ package com.lt.business;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Scanner;
+
 import com.lt.bean.Customer;
 
 
@@ -13,7 +15,7 @@ import com.lt.bean.Customer;
  * @author user214
  *
  */
-public class CustomerBusiness {
+public class CustomerBusiness implements CustomerInterface{
 	/* define business methods inside the class */
 	
 	
@@ -23,18 +25,17 @@ public class CustomerBusiness {
 	int maxsize=0;
 	
 	
-	public void createCustomer() throws IOException {
+	public void createCustomer() {
 		counter++;
 		maxsize=counter+1;
 		int id=1000+counter;
 		String cusName;
 		String cusAddress;
-		InputStreamReader isr= new InputStreamReader(System.in);
-		BufferedReader br= new BufferedReader(isr);
+		Scanner sc=new Scanner(System.in);
 		System.out.println("Enter Customer name \n");
-		cusName=br.readLine();
+		cusName=sc.nextLine();
 		System.out.println("Enter Address of customer \n");
-		cusAddress=br.readLine();
+		cusAddress=sc.nextLine();
 		Customer cus=new Customer();
 		cus.setCustomerID(id);
 		cus.setCustomerName(cusName);
@@ -66,10 +67,10 @@ public class CustomerBusiness {
 		
 		
 	}
-	public void updateCustomer(int customerid) throws IOException {
+	public void updateCustomer(int customerid)  {
 		String customerName , customerAddress;
-		InputStreamReader isr= new InputStreamReader(System.in);
-		BufferedReader br= new BufferedReader(isr);
+		Scanner sc=new Scanner(System.in);
+		
 		int token=-1;
 		for(int i=0;i<5;i++){
 			if(customerid==customers[i].getCustomerID()){
@@ -83,9 +84,9 @@ public class CustomerBusiness {
 		else
 		{
 			System.out.println("Enter the name \n");
-			customerName=br.readLine();
+			customerName=sc.nextLine();
 			System.out.println("Enter the address \n");
-			customerAddress=br.readLine();
+			customerAddress=sc.nextLine();
 			customers[token].setCustomerName(customerName);
 			customers[token].setCustomerAddress(customerAddress);
 			System.out.println("Customer is Updated");
