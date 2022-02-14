@@ -40,7 +40,7 @@ public class DemoSet {
 			System.out.println("The last element of the set is: "
 					+ (Integer) sortedSet.last());
 
-		} catch (Exception e) {
+		} catch (Exception e) { 
 
 			System.out.println(" in exception Class" + e.getMessage());
 		}
